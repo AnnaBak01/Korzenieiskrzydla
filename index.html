@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>korzenieiskrzydla.com | Psychoterapia Gestalt</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --beige: #f6f1ed;
+            --rose: #d8b7b3;
+            --green: #6f8376;
+            --light: #ffffff;
+            --soft: #eef2ef;
+            --dark: #3a3a3a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background:
+                linear-gradient(rgba(255, 255, 255, .91), rgba(255, 255, 255, .9)),
+                url("nordwood-themes-R53t-Tg6J4c-unsplash.jpg");
+            background-repeat: repeat;
+            line-height: 1.8;
+            color: var(--dark);
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 50px 20px 50px 20px
+        }
+
+        .btn {
+            margin: 20px 40px 0 40px;
+            padding: 10px 35px;
+            color: var(--green);
+            border: 1px solid var(--green);
+            display: inline-block;
+            transition: .3s;
+        }
+
+        .btn-white {
+            padding: 10px 35px;
+            border: 1px solid white;
+            color: white;
+            display: inline-block;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            background: var(--green);
+            color: #fff;
+        }
+
+        .btn-white:hover {
+            background: white;
+            color: var(--green);
+        }
+
+        /* NAV */
+
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, .1);
+            background: #ffffff2f;
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+        }
+
+        .nav-links a {
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: var(--green)
+        }
+
+        /* HERO */
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            color: var(--dark);
+            text-shadow: 0px 0px 20px rgba(255, 255, 255, 1);
+        }
+
+        .hero-slides,
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .slide {
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            animation: fade 18s infinite;
+        }
+
+        .slide-1 {
+            background-image: url('banner1-1.jpg');
+            animation-delay: 0s
+        }
+
+        .slide-2 {
+            background-image: url('banner2.jpg');
+            animation-delay: 6s
+        }
+
+        .slide-3 {
+            background-image: url('banner3.jpg');
+            animation-delay: 12s
+        }
+
+        .slide::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(216, 183, 179, .45);
+            mix-blend-mode: multiply;
+        }
+
+        @keyframes fade {
+            0% {
+                opacity: 0
+            }
+
+            8% {
+                opacity: 1
+            }
+
+            30% {
+                opacity: 1
+            }
+
+            38% {
+                opacity: 0
+            }
+
+            100% {
+                opacity: 0
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            margin-bottom: 30px
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            text-shadow: 0px 0px 5px rgba(255, 255, 255, 1);
+        }
+
+        /* IMAGE SECTION */
+
+        .image-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .image-section img {
+            width: 100%;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, .08);
+        }
+
+        /* CARDS */
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 50px;
+            margin-top: 50px;
+        }
+
+        .card {
+            padding: 10px;
+            border-radius: 16px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, .05);
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, .15);
+        }
+
+        .card-body {
+            padding: 5px 20px 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .card-body .btn {
+            margin-bottom: 30px
+        }
+
+        /* CONTACT */
+
+        .contact {
+            background: #c0a9a91f;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid var(--green)
+        }
+
+        .contact-columns {
+            max-width: 1000px;
+            margin: 30px auto 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            border: 1px solid var(--green);
+            overflow: hidden;
+        }
+
+        .contact-left,
+        .contact-right {
+            flex: 1 1 350px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-left {
+            border-right: 1px solid var(--green)
+        }
+
+        .contact-right {
+            background: #f4eeee
+        }
+
+        .contact ul {
+            list-style: none
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: var(--green);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:900px) {
+            .hero h1 {
+                font-size: 38px
+            }
+
+            .image-section {
+                grid-template-columns: 1fr
+            }
+
+            .nav {
+                flex-direction: column
+            }
+        }
+
+        @media(max-width:768px) {
+            .contact-columns {
+                flex-direction: column
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="nav">
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <img src="logo-korzenie-i-skrzydla.png" alt="Logo" style="height: 30px; width: auto;">
+            <strong>Korzenie i Skrzydła</strong>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" style="color: var(--green);font-weight: bold;">Strona główna</a>
+            <a href="o-mnie.html">O mnie</a>
+            <a href="oferta.html">Oferta</a>
+            <a href="warsztaty.html">Warsztaty</a>
+            <a href="cennik.html">Cennik</a>
+            <a href="zasady.html">Zasady</a>
+            <a href="index.html#contact">Kontakt</a>
+            <a href="https://www.znanylekarz.pl/magdalena-krol-czeres/psycholog/lodz">Umów się</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-slides">
+            <div class="slide slide-1"></div>
+            <div class="slide slide-2"></div>
+            <div class="slide slide-3"></div>
+        </div>
+
+        <div class="hero-content">
+            <h1>Psychoterapia w kontakcie <i>„tu i teraz”</i></h1>
+            <p>Bezpieczna przestrzeń dla kobiet i młodych dorosłych, którzy chcą lepiej rozumieć siebie, swoje emocje i
+                swoje ciało.</p>
+        </div>
+    </div>
+    <footer>
+        <a href="https://www.znanylekarz.pl/magdalena-krol-czeres/psycholog/lodz" class="btn-white">Umów konsultację już
+            teraz</a>
+    </footer>
+
+    <section class="container">
+        <div class="image-section">
+            <img src="Magda Czereś-Król.png" alt="Psychoterapeutka">
+            <div>
+                <h2>O mnie</h2>
+                <p>Jestem psycholożką oraz psychoterapeutką w trakcie 4-letniego szkolenia w nurcie Gestalt. W centrum
+                    mojej pracy jest kontakt „tu i teraz” oraz relacja terapeutyczna.</p>
+                <br>
+                <a href="o-mnie.html" class="btn">Czytaj więcej</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="container">
+        <h1>Formy wsparcia</h1>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-body">
+                    <h3>Konsultacje indywidualne</h3>
+                    <p>Wsparcie dla dorosłych w trudnych emocjach, relacjach, lęku i depresji.</p>
+                    <a href="oferta.html#konsultacje-indywidualne" class="btn">Czytaj więcej</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h3>Konsultacje dla młodzieży 14+</h3>
+                    <p>Wsparcie emocjonalne i psychologiczne w bezpiecznym, poufnym środowisku.</p>
+                    <a href="oferta.html#konsultacje-dzieci" class="btn">Czytaj więcej</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h3>Konsultacje dla rodziców i opiekunów</h3>
+                    <p>Pomoc w rozumieniu zachowań dziecka, regulacji emocji i wzmocnieniu roli wychowawczej.</p>
+                    <a href="oferta.html#konsultacje-rodzice" class="btn">Czytaj więcej</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h3>Konsultacje scenariuszowe</h3>
+                    <p>Wsparcie przy tworzeniu scenariuszy, postaci i dbaniu o dobrostan zespołu.</p>
+                    <a href="warsztaty.html" class="btn">Czytaj więcej</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h3>Warsztaty i działania profilaktyczne dla zespołu</h3>
+                    <p>Szkolenia i warsztaty w firmach i szkołach dotyczące stresu, dobrostanu i kompetencji
+                        emocjonalnych.</p>
+                    <a href="warsztaty.html" class="btn">Czytaj więcej</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-body">
+                    <h3>Grupy rozwojowe i warsztaty tematyczne</h3>
+                    <p>Spotkania wspierające rozwój osobisty, pracę z ciałem i oddechem, neuroróżnorodność.</p>
+                    <a href="warsztaty.html" class="btn">Czytaj więcej</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="contact" id="contact">
+        <h1>Skontaktuj się</h1>
+        <p>Napisz, zadzwoń lub umów się na wizytę - odpowiem na Twoje pytania i pomogę dobrać formę wsparcia.</p>
+        <p><strong>Zrób pierwszy krok już dziś.</strong></p>
+        <a href="mailto:" class="btn">Skontaktuj się</a>
+
+        <div class="contact-columns">
+            <div class="contact-left">
+                <h4>Magdalena Czereś-Król</h4>
+                <ul>
+                    <li><a href="https://maps.app.goo.gl/EjufcChxKE1nufug6?g_st=ic" target="_blank">📍 Łagiewnicka
+                            54/56, Bałuty, 91-463 Łódź</a></li>
+                    <li><a href="mailto:korzenieiskrzydla.lodz@gmail.com">✉️ korzenieiskrzydla.lodz@gmail.com</a></li>
+                </ul>
+                <p>Coś więcej tu dodać - jakieś sociale?</p>
+            </div>
+
+            <div class="contact-right">
+                <iframe width="100%" height="350" frameborder="0" style="border:0"
+                    src="https://maps.google.com/maps?width=600&amp;height=400&amp;hl=en&amp;q=Łagiewnicka 54/56, Bałuty, 91-463 Łódź&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        © 2026 korzenieiskrzydla.com | Magdalena Czereś-Król
+    </footer>
+
+</body>
+
+</html>
