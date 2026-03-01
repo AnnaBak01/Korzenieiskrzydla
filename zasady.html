@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Zasady współpracy | Korzenie i Skrzydła</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        :root {
+            --beige: #f6f1ed;
+            --rose: #d8b7b3;
+            --green: #6f8376;
+            --light: #ffffff;
+            --soft: #eef2ef;
+            --dark: #3a3a3a;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background:
+                linear-gradient(rgba(255, 255, 255, .91), rgba(255, 255, 255, .9)),
+                url("nordwood-themes-R53t-Tg6J4c-unsplash.jpg");
+            background-repeat: repeat;
+            line-height: 1.8;
+            color: var(--dark);
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 50px 50px 50px 50px
+        }
+
+        .btn {
+            margin: 20px 40px 0 40px;
+            padding: 10px 35px;
+            color: var(--green);
+            border: 1px solid var(--green);
+            display: inline-block;
+            transition: .3s;
+        }
+
+        .btn-white {
+            padding: 10px 35px;
+            border: 1px solid white;
+            color: white;
+            display: inline-block;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            background: var(--green);
+            color: #fff;
+        }
+
+        .btn-white:hover {
+            background: white;
+            color: var(--green);
+        }
+
+        /* NAV */
+
+
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, .1);
+            background: #ffffff2f;
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            color: var(--dark);
+        }
+
+        .nav-links a {
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        .nav-links a:hover {
+            color: var(--green)
+        }
+
+        /* HERO */
+        .hero {
+            position: relative;
+            margin-top: 25vh;
+            height: 25vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            color: var(--dark);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            font-style: italic;
+        }
+
+        /* SEKCJE - styl tekstu */
+        .section-text {
+            margin: 0 auto 40px auto;
+            text-align: left;
+        }
+
+        .section-text h2 {
+            font-size: 2rem;
+            margin: 40px 0 20px 0;
+            color: var(--green);
+            border-bottom: 1px solid var(--rose);
+            padding-bottom: 8px;
+        }
+
+        .section-text h2:first-of-type {
+            margin-top: 20px;
+        }
+
+        .section-text p {
+            margin-bottom: 15px;
+        }
+
+        .section-text strong {
+            color: var(--green);
+        }
+
+        .section-text em {
+            color: var(--rose);
+        }
+
+        .section-text ul {
+            list-style: none;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .section-text li {
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .section-text li::before {
+            content: "•";
+            color: var(--rose);
+            font-weight: bold;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 0;
+            top: -5px;
+        }
+
+        .exception-box {
+            background: rgba(216, 183, 179, 0.05);
+            border-left: 3px solid var(--rose);
+            border-radius: 0 8px 8px 0;
+            padding: 20px;
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        /* Cytat */
+        .quote-section {
+            background: #c0a9a91f;
+            padding: 40px 20px;
+            text-align: center;
+            border: 1px solid var(--green);
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin: 40px auto;
+            max-width: 900px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--green);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:900px) {
+            .hero h1 {
+                font-size: 38px
+            }
+
+            .nav {
+                flex-direction: column;
+                padding: 15px 20px;
+            }
+
+            .nav-links a {
+                margin: 0 10px;
+            }
+        }
+
+        @media(max-width:768px) {
+            .section-intro {
+                padding: 20px;
+            }
+        }
+
+        .contact {
+            background: #c0a9a91f;
+            padding: 40px 20px;
+            text-align: center;
+            border-top: 1px solid var(--green)
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <img src="logo-korzenie-i-skrzydla.png" alt="Logo" style="height: 30px; width: auto;">
+            <strong>Korzenie i Skrzydła</strong>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Strona główna</a>
+            <a href="o-mnie.html">O mnie</a>
+            <a href="oferta.html">Oferta</a>
+            <a href="warsztaty.html">Warsztaty</a>
+            <a href="cennik.html">Cennik</a>
+            <a href="zasady.html" style="color: var(--green);font-weight: bold;">Zasady</a>
+            <a href="https://www.znanylekarz.pl/magdalena-krol-czeres/psycholog/lodz"
+                style="color: var(--rose);font-weight: bold;"><strong>Umów
+                    się</strong></a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Zasady współpracy</h1>
+            <p>Rama, która chroni proces terapeutyczny</p>
+        </div>
+    </section>
+
+    <!-- WSTĘP -->
+    <div class="section-intro" style="margin-top: 50px; max-width: 1200px; margin-left: auto; margin-right: auto;">
+        <p>Relacja terapeutyczna opiera się na bezpieczeństwie,
+            wzajemnym szacunku, autentyczności oraz jasno określonych granicach. Poniższe zasady chronią proces
+            terapeutyczny i sprzyjają jego stabilności.</p>
+    </div>
+
+    <!-- GŁÓWNE ZASADY - w formie ciągłego tekstu -->
+    <section class="container" style="max-width: 1300px;">
+        <div class="section-text">
+
+            <h2> Częstotliwość spotkań</h2> <!-- błąd stylistyczny, ale zostawiam oryginał -->
+            <p>Sesje odbywają się zazwyczaj raz w tygodniu.</p>
+            <p>W szczególnych przypadkach – po wspólnym ustaleniu – możliwe są spotkania częstsze lub rzadsze.</p>
+            <p><strong>Regularność jest istotnym elementem procesu terapeutycznego i wpływa na jego
+                    skuteczność.</strong></p>
+
+            <h2>Zasady płatności</h2>
+            <p>Opłata za wszystkie zaplanowane sesje w danym miesiącu dokonywana jest z góry.</p>
+            <p><strong>Odwołanie wizyty w terminie krótszym niż 7 dni przed sesją wiąże się z pełną opłatą.</strong>
+                Jeśli odwołanie następuje z mojej strony, opłata przechodzi na kolejny miesiąc lub ustalany jest
+                dodatkowy termin.</p>
+            <p>Istnieje możliwość odrobienia nieobecności w ciągu miesiąca w dodatkowym terminie (jeśli termin będzie
+                możliwy do przyjęcia). <em>Nieodrobiona sesja przepada.</em></p>
+            <p>W razie potrzeby sesja może odbyć się online.</p>
+
+            <h2>Odwołanie sesji z mojej strony</h2>
+            <p>Zastrzegam sobie prawo do odwołania spotkania w krótszym terminie ze względu na specyfikę zawodu oraz
+                dbałość o własne zasoby — tak, aby móc pracować w sposób odpowiedzialny i uważny.</p>
+            <p>W przypadku nagłej choroby lub nieobecności ustalane są terminy umożliwiające nadrobienie sesji.</p>
+
+            <h2>Zakończenie terapii</h2>
+            <p>Zakończenie terapii jest ważnym elementem procesu.</p>
+            <p><strong>Zależy mi, aby ostatnie spotkanie odbywało się w bezpośrednim kontakcie, podczas sesji, a nie w
+                    formie wiadomości mailowej lub rozmowy telefonicznej.</strong></p>
+
+            <h2>Rejestrowanie sesji</h2>
+            <p>W wyjątkowych sytuacjach może pojawić się potrzeba rejestrowania sesji (nagranie audio lub wideo), np. do
+                celów szkoleniowych lub superwizyjnych. Każdorazowo wymaga to uprzedniej, pisemnej zgody.</p>
+
+            <h2>Autentyczność i odpowiedzialność w procesie</h2>
+            <p>W pracy terapeutycznej zadaję pytania dotyczące różnych obszarów życia i doświadczeń. Każda osoba ma
+                prawo odmówić odpowiedzi.</p>
+
+            <h2>Stan psychofizyczny podczas sesji</h2>
+            <p>Sesje nie odbywają się pod wpływem alkoholu ani innych środków zmieniających świadomość. Wyjątek stanowią
+                leki przepisane przez lekarza.</p>
+
+            <h2>Granice relacji</h2>
+            <p>Relacja z osobami pozostającymi w terapii ma charakter wyłącznie terapeutyczny.</p>
+            <p>Nie utrzymuję relacji towarzyskich, biznesowych ani innych relacji wykraczających poza ramy procesu
+                terapeutycznego.</p>
+
+            <h2>Dokumentacja</h2>
+            <p>Prowadzę dokumentację z przebiegu sesji.</p>
+            <p>Dokumentacja jest odpowiednio zabezpieczona i nie jest udostępniana osobom trzecim.</p>
+            <p>Odpis dokumentacji może zostać sporządzony na indywidualnie ustalonych zasadach.</p>
+
+        </div>
+        <div class="section-text">
+            <h2>Poufność</h2>
+            <p>Dbam o poufność procesu terapeutycznego — treści omawiane podczas sesji nie są przekazywane osobom
+                trzecim.</p>
+
+            <div class="exception-box">
+                <p><strong>Od tej zasady istnieją wyjątki:</strong></p>
+                <ul>
+                    <li><strong>superwizja i interwizja</strong> — omawiam swoją pracę z innymi specjalistami w celu
+                        podnoszenia jakości i bezpieczeństwa pracy; nie ujawniam danych pozwalających na identyfikację
+                        osoby,</li>
+                    <li><strong>wezwanie do złożenia zeznań</strong> w charakterze świadka w postępowaniu karnym,</li>
+                    <li><strong>bezpośrednie zagrożenie życia lub zdrowia</strong> osoby pozostającej w terapii lub
+                        innych osób — szczególnie w sytuacjach realnego ryzyka samobójstwa; w takich przypadkach
+                        obowiązujące przepisy prawa zobowiązują mnie do podjęcia odpowiednich działań, w tym
+                        powiadomienia właściwych służb.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta-box">
+        <h3>Rozpocznijmy współpracę</h3>
+        <p>Jeżeli potrzebujesz warsztatów dla swojej organizacji, konsultacji scenariuszowej, czy
+            wsparcia dla zespołu twórców - porozmawiajmy o daszej współpracy.</p>
+        <a href="index.html#contact" class="btn">Umów
+            konsultację
+            <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <style>
+        .cta-box {
+            background: var(--soft);
+            padding: 50px;
+            text-align: center;
+            margin: 40px 0 20px 0;
+            border: 1px solid var(--green);
+        }
+
+        .cta-box h3 {
+            font-size: 2rem;
+            color: var(--green);
+            margin-bottom: 15px;
+        }
+
+        .cta-box p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+    </style>
+    <!-- FOOTER -->
+    <footer>
+        © 2026 korzenieiskrzydla.com | Magdalena Czereś-Król
+    </footer>
+
+</body>
+
+</html>

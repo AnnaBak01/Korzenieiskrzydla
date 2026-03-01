@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dla kogo | Korzenie i Skrzydła</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- TEN SAM CSS co w pozostałych podstronach -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+    :root {
+        --beige: #f6f1ed;
+        --rose: #d8b7b3;
+        --green: #6f8376;
+        --light: #ffffff;
+        --soft: #eef2ef;
+        --dark: #3a3a3a;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background:
+            linear-gradient(rgba(255, 255, 255, .91), rgba(255, 255, 255, .9)),
+            url("nordwood-themes-R53t-Tg6J4c-unsplash.jpg");
+        background-repeat: repeat;
+        line-height: 1.8;
+        color: var(--dark);
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-family: 'Playfair Display', serif
+    }
+
+    a {
+        text-decoration: none;
+        color: inherit
+    }
+
+    .container {
+        max-width: 1100px;
+        margin: auto;
+        padding: 50px 20px 50px 20px
+    }
+
+    .btn {
+        margin: 20px 40px 0 40px;
+        padding: 10px 5px;
+        color: var(--green);
+        border: 1px solid var(--green);
+        display: inline-block;
+        transition: .3s;
+        text-align: center;
+    }
+
+    .btn-white {
+        padding: 10px 35px;
+        border: 1px solid white;
+        color: white;
+        display: inline-block;
+        transition: .3s;
+    }
+
+    .btn:hover {
+        background: var(--green);
+        color: #fff;
+    }
+
+    .btn-white:hover {
+        background: white;
+        color: var(--green);
+    }
+
+    /* NAV */
+
+
+    .nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        padding: 20px 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0 2px 20px rgba(0, 0, 0, .1);
+        background: #ffffff2f;
+        backdrop-filter: blur(5px);
+        z-index: 1000;
+        color: var(--dark);
+    }
+
+    .nav-links a {
+        margin-left: 25px;
+        font-size: 14px;
+    }
+
+    .nav-links a:hover {
+        color: var(--green)
+    }
+
+    /* HERO */
+
+    .hero {
+        position: relative;
+        margin-top: 25vh;
+        height: 30vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+        color: var(--dark);
+    }
+
+    .hero-slides,
+    .slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    .slide {
+        background-size: cover;
+        background-position: center;
+    }
+
+    .slide-1 {
+        background-image: url('banner-oferta.jpg');
+    }
+
+    .slide::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(222, 186, 182, 0.265);
+        mix-blend-mode: normal;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 800px;
+        padding: 20px;
+    }
+
+    .hero h1 {
+        font-size: 60px;
+        margin-bottom: 30px
+    }
+
+    .hero p {
+        font-size: 18px;
+        margin-bottom: 40px
+    }
+
+
+
+    /* IMAGE SECTION */
+
+    .image-section {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+    }
+
+    .image-section img {
+        width: 100%;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, .08);
+    }
+
+    /* CARDS */
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 50px;
+        margin-top: 50px;
+    }
+
+    .card {
+        padding: 10px;
+        border-radius: 16px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, .05);
+        transition: .3s;
+    }
+
+    .card:hover {
+        transform: translateY(-8px) scale(1.01);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, .15);
+    }
+
+    .card-body {
+        padding: 5px 20px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .card-body .btn {
+        margin-bottom: 30px
+    }
+
+    /* CONTACT */
+
+
+    .contact {
+        background: #c0a9a91f;
+        padding: 20px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        /* wyśrodkowanie w poziomie */
+        text-align: center;
+        /* wyśrodkowanie tekstu */
+        border: 1px solid var(--green);
+        font-family: 'Playfair Display', serif;
+        font-size: large;
+    }
+
+    .contact-columns {
+        max-width: 1000px;
+        margin: 30px auto 0;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        border: 1px solid var(--green);
+        overflow: hidden;
+    }
+
+    .contact-left,
+    .contact-right {
+        flex: 1 1 350px;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .contact-left {
+        border-right: 1px solid var(--green)
+    }
+
+    .contact-right {
+        background: #f4eeee
+    }
+
+    .contact ul {
+        list-style: none
+    }
+
+    /* FOOTER */
+
+
+    footer {
+        background: var(--green);
+        color: white;
+        text-align: center;
+        padding: 30px 20px;
+        margin-top: 80px;
+    }
+
+    .student-list ul {
+        columns: 2;
+        column-gap: 0px;
+        padding-left: 20px;
+    }
+
+    @media(max-width:768px) {
+        .student-list ul {
+            columns: 1;
+        }
+    }
+
+    /* RESPONSIVE */
+
+    @media(max-width:900px) {
+        .hero h1 {
+            font-size: 38px
+        }
+
+        .image-section {
+            grid-template-columns: 1fr
+        }
+
+        .nav {
+            flex-direction: column
+        }
+    }
+
+    @media(max-width:768px) {
+        .contact-columns {
+            flex-direction: column
+        }
+    }
+
+    .youth-parents-section {
+        display: grid;
+        grid-template-columns: 1fr 1.4fr 1fr;
+        gap: 70px;
+        align-items: center;
+        padding-top: 140px;
+        padding-bottom: 40px;
+    }
+
+    .text-column {
+        max-width: 420px;
+    }
+
+    .image-column img {
+        width: 100%;
+        height: 520px;
+        object-fit: cover;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+    }
+
+    /* RESPONSYWNOŚĆ */
+    @media (max-width: 1000px) {
+        .youth-parents-section {
+            grid-template-columns: 1fr;
+            gap: 50px;
+        }
+
+        .text-column {
+            max-width: 100%;
+        }
+
+        .image-column img {
+            height: 380px;
+        }
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+        .three-column-section {
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .center-image {
+            order: -1;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <div style="display: flex; align-items: center; gap: 8px;">
+            <img src="logo-korzenie-i-skrzydla.png" alt="Logo" style="height: 30px; width: auto;">
+            <strong>Korzenie i Skrzydła</strong>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">Strona główna</a>
+            <a href="o-mnie.html">O mnie</a>
+            <a href="oferta.html" style="color: var(--green);font-weight: bold;">Oferta</a>
+            <a href="warsztaty.html">Warsztaty</a>
+            <a href="cennik.html">Cennik</a>
+            <a href="zasady.html">Zasady</a>
+            <a href="https://www.znanylekarz.pl/magdalena-krol-czeres/psycholog/lodz"
+                style="color: var(--rose);font-weight: bold;"><strong>Umów
+                    się</strong></a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Dla kogo</h1>
+            <p>Wsparcie dopasowane do etapu życia i indywidualnych potrzeb</p>
+        </div>
+    </section>
+
+    <!-- KOBIETY -->
+    <section class="container image-section">
+        <div>
+            <h2>Praca z kobietami</h2>
+
+            <p style="margin-top: 10px;">Pracuję z kobietami (18–40 lat) doświadczającymi depresji, lęku, przeciążenia,
+                trudności w
+                relacjach, żałoby i
+                objawów
+                psychosomatycznych.</p>
+
+            <p style="margin-top: 10px;">Szczególnie bliska jest mi praca z kobietami neuroróżnorodnymi (ADHD, spektrum
+                autyzmu — również w
+                procesie
+                diagnozy), które doświadczają maskowania, chronicznego zmęczenia i poczucia „niedopasowania”. Nie musisz
+                mieć gotowej diagnozy, jeśli podejrzewasz że może to dotyczyć Ciebie i czujesz utrudnienia w związku z
+                objawami- możemy wspólnie porozmawiać na ten temat podczas konsultacji i sprawdzić co na ten moment jest
+                Tobie najbardziej potrzebne.</p>
+
+            <p style="margin-top: 10px;">Towarzyszę także kobietom w procesie starania się o ciążę oraz w okresie ciąży.
+            </p>
+        </div>
+
+        <div>
+            <img src="Wsparcie dla kobiet 2.jpg" alt="Wsparcie dla kobiet">
+        </div>
+    </section>
+
+    <!-- MĘŻCZYŹNI -->
+    <section class="container image-section">
+        <div>
+            <img src="Wsparcie dla mężczyzn 2.jpg" alt="Wsparcie dla mężczyzn">
+        </div>
+
+        <div>
+            <h2>Praca z mężczyznami</h2>
+
+            <p style="margin-top: 10px;">Pracuję z mężczyznami (18–32 lat) doświadczającymi osamotnienia, kryzysu
+                tożsamości,
+                trudności w relacjach, lęku i
+                depresji.</p>
+
+            <p style="margin-top: 10px;">To często czas mierzenia się z presją osiągnięć, odpowiedzialnością i
+                budowaniem własnej definicji
+                męskości. W terapii możliwe jest bezpieczne przyglądanie się emocjom, wstydowi, złości, perfekcjonizmowi
+                oraz napięciu wynikającemu z oczekiwań wobec siebie.</p>
+
+            <p style="margin-top: 10px;">Jeśli coś z tego porusza lub nie zostało ujęte to z czym się mierzysz w żadnym
+                z punktów— zapraszam do
+                kontaktu.</p>
+        </div>
+    </section>
+
+    <!-- STUDENCI -->
+    <section class="container youth-parents-section">
+        <div class="text-column">
+            <h2>Młodzież (14+)</h2>
+
+            <p>W pracy z nastolatkiem uwzględniam kontekst rodzinny. Współpracuję z rodzicami przy jednoczesnym
+                poszanowaniu poufności młodej osoby. Zasada poufności w pracy z osobami nastoletnimi jest dla mnie
+                najważniejsza, ponieważ służy ona budowaniu relacji i przyczynia do efektywnego wsparcia.</p>
+
+            <p>Korzystam z rozmowy, elementów arteterapii i pracy z doświadczeniem — wspierając integrację emocji i
+                budowanie poczucia bezpieczeństwa. Na pierwsze spotkanie przychodzą rodzice w celu przyjrzeniu się
+                problemom od ich strony.</p>
+        </div>
+
+        <div class="image-column">
+            <img src="Wsparcie dla nastolatków 2.jpg" alt="Wsparcie dla młodzieży">
+        </div>
+
+        <div class="text-column">
+            <h2>Wsparcie dla rodziców i opiekunów</h2>
+
+            <p>Oferuję konsultacje wspierające dla rodziców dzieci i młodzieży — pomoc w rozumieniu zachowań dziecka
+                oraz
+                regulacji własnych emocji. Podczas wizyty możliwe jest przyjrzenie się co potrzebuje wsparcia,
+                wzmocnienia w postawie rodzicielskiej lub sprawującej opiekę.</p>
+        </div>
+    </section>
+
+    <section class="container main-offers">
+        <h1 style="text-align: center; margin-bottom: 50px;">Formy wsparcia</h1>
+
+        <div class="offers-grid">
+            <!-- INDYWIDUALNA -->
+            <div class="offer-card">
+                <h2>Psychoterapia indywidualna</h2>
+                <p>Regularne spotkania w bezpiecznej, wspierającej atmosferze. Pracujemy nad Twoimi celami i wyzwaniami
+                    każdego tygodnia.</p>
+                <ul class="offer-list">
+                    <li>Dorosłe kobiety</li>
+                    <li>Mężczyźni</li>
+                    <li>Młodzież</li>
+                    <li>Studenci</li>
+                </ul>
+                <a href="https://www.znanylekarz.pl/magdalena-krol-czeres/psycholog/lodz" class="btn">Umów się</a>
+            </div>
+
+            <!-- GRUPOWA -->
+            <div class="offer-card">
+                <h2>Grupy wsparcia i rozwojowe</h2>
+                <p>Praca w grupie daje wyjątkową możliwość uczenia się poprzez kontakt z innymi i wymianę doświadczeń.
+                </p>
+                <ul class="offer-list">
+                    <li>Grupa dla kobiet</li>
+                    <li>Grupa dla psychologów szkolnych</li>
+                    <li>Grupy tematyczne</li>
+                </ul>
+                <a href="warsztaty.html" class="btn">Dowiedz się więcej</a>
+            </div>
+
+            <!-- WARSZTATOWA -->
+            <div class="offer-card">
+                <h2>Warsztaty oraz szkolenia</h2>
+                <p>Praktyczne spotkania tematyczne dostosowane do potrzeb Twojej grupy, szkoły lub organizacji.
+                    <strong>Cena ustalana indywidualnie.</strong>
+                </p>
+                <ul class="offer-list">
+                    <li>Dla firm i szkół</li>
+                    <li>Konsultacje scenariuszowe</li>
+                    <li>Warsztaty profilaktyczne</li>
+                </ul>
+                <a href="warsztaty.html" class="btn">Poznaj ofertę</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="cta-box">
+        <h3>Rozpocznijmy współpracę</h3>
+        <p>Jeżeli potrzebujesz warsztatów dla swojej organizacji, konsultacji scenariuszowej, czy
+            wsparcia dla zespołu twórców - porozmawiajmy o daszej współpracy.</p>
+        <a href="index.html#contact" class="btn">Umów
+            konsultację
+            <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <footer>
+        © 2026 korzenieiskrzydla.com | Magdalena Czereś-Król
+    </footer>
+
+
+    <style>
+        .cta-box {
+            background: var(--soft);
+            padding: 50px;
+            text-align: center;
+            margin: 60px 0;
+            border: 1px solid var(--green);
+        }
+
+        .cta-box h3 {
+            font-size: 2rem;
+            color: var(--green);
+            margin-bottom: 15px;
+        }
+
+        .cta-box p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #555;
+        }
+
+        .main-offers {
+            margin: 60px auto;
+        }
+
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .offer-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(168, 213, 186, 0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(168, 213, 186, 0.2);
+            border-color: var(--green);
+        }
+
+        .offer-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .offer-card h2 {
+            font-size: 1.7rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+
+        .offer-card p {
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.7;
+            flex: 1;
+        }
+
+        .offer-list {
+            list-style: none;
+            margin: 10px 0;
+            padding-left: 0;
+        }
+
+        .offer-list li {
+            color: #666;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .offer-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--green);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .quote-banner {
+            background: linear-gradient(135deg, rgba(168, 213, 186, 0.1) 0%, rgba(244, 166, 193, 0.1) 100%);
+            padding: 50px 30px;
+            text-align: center;
+            border: 1px solid var(--green);
+            margin: 60px auto;
+            max-width: 800px;
+            border-radius: 8px;
+        }
+
+        .quote-banner p {
+            font-size: 1.4rem;
+            font-family: 'Playfair Display', serif;
+            color: var(--dark);
+            font-style: italic;
+        }
+
+        .target-groups {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+        }
+
+        .group-box {
+            background: #f9f9f9;
+            padding: 30px;
+            border-left: 4px solid var(--green);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .group-box:hover {
+            background: #f5f9f7;
+            border-left-color: var(--rose);
+        }
+
+        .group-box h3 {
+            color: var(--dark);
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        .group-box p {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        .groups-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .group-item {
+            background: white;
+            padding: 25px;
+            border: 1px solid rgba(168, 213, 186, 0.3);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .group-item:hover {
+            border-color: var(--green);
+            box-shadow: 0 10px 20px rgba(168, 213, 186, 0.15);
+        }
+
+        .group-item h3 {
+            color: var(--green);
+            margin-bottom: 10px;
+        }
+
+        .group-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+    </style>
