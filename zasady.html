@@ -5,245 +5,7 @@
     <meta charset="UTF-8">
     <title>Zasady współpracy | Korzenie i Skrzydła</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-        :root {
-            --beige: #f6f1ed;
-            --rose: #d8b7b3;
-            --green: #6f8376;
-            --light: #ffffff;
-            --soft: #eef2ef;
-            --dark: #3a3a3a;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background:
-                linear-gradient(rgba(255, 255, 255, .91), rgba(255, 255, 255, .9)),
-                url("nordwood-themes-R53t-Tg6J4c-unsplash.jpg");
-            background-repeat: repeat;
-            line-height: 1.8;
-            color: var(--dark);
-        }
-
-        h1,
-        h2,
-        h3 {
-            font-family: 'Playfair Display', serif
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 50px 50px 50px 50px
-        }
-
-        .btn {
-            margin: 20px 40px 0 40px;
-            padding: 10px 35px;
-            color: var(--green);
-            border: 1px solid var(--green);
-            display: inline-block;
-            transition: .3s;
-        }
-
-        .btn-white {
-            padding: 10px 35px;
-            border: 1px solid white;
-            color: white;
-            display: inline-block;
-            transition: .3s;
-        }
-
-        .btn:hover {
-            background: var(--green);
-            color: #fff;
-        }
-
-        .btn-white:hover {
-            background: white;
-            color: var(--green);
-        }
-
-        /* NAV */
-
-
-        .nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, .1);
-            background: #ffffff2f;
-            backdrop-filter: blur(5px);
-            z-index: 1000;
-            color: var(--dark);
-        }
-
-        .nav-links a {
-            margin-left: 25px;
-            font-size: 14px;
-        }
-
-        .nav-links a:hover {
-            color: var(--green)
-        }
-
-        /* HERO */
-        .hero {
-            position: relative;
-            margin-top: 25vh;
-            height: 25vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-            color: var(--dark);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 20px;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            font-style: italic;
-        }
-
-        /* SEKCJE - styl tekstu */
-        .section-text {
-            margin: 0 auto 40px auto;
-            text-align: left;
-        }
-
-        .section-text h2 {
-            font-size: 2rem;
-            margin: 40px 0 20px 0;
-            color: var(--green);
-            border-bottom: 1px solid var(--rose);
-            padding-bottom: 8px;
-        }
-
-        .section-text h2:first-of-type {
-            margin-top: 20px;
-        }
-
-        .section-text p {
-            margin-bottom: 15px;
-        }
-
-        .section-text strong {
-            color: var(--green);
-        }
-
-        .section-text em {
-            color: var(--rose);
-        }
-
-        .section-text ul {
-            list-style: none;
-            margin: 20px 0;
-            text-align: left;
-        }
-
-        .section-text li {
-            margin-bottom: 15px;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .section-text li::before {
-            content: "•";
-            color: var(--rose);
-            font-weight: bold;
-            font-size: 1.5rem;
-            position: absolute;
-            left: 0;
-            top: -5px;
-        }
-
-        .exception-box {
-            background: rgba(216, 183, 179, 0.05);
-            border-left: 3px solid var(--rose);
-            border-radius: 0 8px 8px 0;
-            padding: 20px;
-            margin-top: 20px;
-            text-align: left;
-        }
-
-        /* Cytat */
-        .quote-section {
-            background: #c0a9a91f;
-            padding: 40px 20px;
-            text-align: center;
-            border: 1px solid var(--green);
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            margin: 40px auto;
-            max-width: 900px;
-        }
-
-        /* FOOTER */
-        footer {
-            background: var(--green);
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            margin-top: 50px;
-        }
-
-        /* RESPONSIVE */
-        @media(max-width:900px) {
-            .hero h1 {
-                font-size: 38px
-            }
-
-            .nav {
-                flex-direction: column;
-                padding: 15px 20px;
-            }
-
-            .nav-links a {
-                margin: 0 10px;
-            }
-        }
-
-        @media(max-width:768px) {
-            .section-intro {
-                padding: 20px;
-            }
-        }
-
-        .contact {
-            background: #c0a9a91f;
-            padding: 40px 20px;
-            text-align: center;
-            border-top: 1px solid var(--green)
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -251,7 +13,7 @@
     <!-- NAV -->
     <nav class="nav">
         <div style="display: flex; align-items: center; gap: 8px;">
-            <img src="logo-korzenie-i-skrzydla.png" alt="Logo" style="height: 30px; width: auto;">
+            <img src="logo-korzenie-i-skrzydła.png" alt="Logo" style="height: 30px; width: auto;">
             <strong>Korzenie i Skrzydła</strong>
         </div>
         <div class="nav-links">
@@ -268,8 +30,8 @@
     </nav>
 
     <!-- HERO -->
-    <section class="hero">
-        <div class="hero-content">
+    <section class="main-section">
+        <div class="main-section-content">
             <h1>Zasady współpracy</h1>
             <p>Rama, która chroni proces terapeutyczny</p>
         </div>
@@ -308,7 +70,7 @@
 
             <h2>Zakończenie terapii</h2>
             <p>Zakończenie terapii jest ważnym elementem procesu.</p>
-            <p><strong>Zależy mi, aby ostatnie spotkanie odbywało się w bezpośrednim kontakcie, podczas sesji, a nie w
+            <p><strong>Zależy mi, aby ostatnie spotkanie odbywało sięw bezpośrednim kontakcie, podczas sesji, a nie w
                     formie wiadomości mailowej lub rozmowy telefonicznej.</strong></p>
 
             <h2>Rejestrowanie sesji</h2>

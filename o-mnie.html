@@ -5,305 +5,7 @@
     <meta charset="UTF-8">
     <title>O mnie | Korzenie i Skrzydła</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-        :root {
-            --beige: #f6f1ed;
-            --rose: #d8b7b3;
-            --green: #6f8376;
-            --light: #ffffff;
-            --soft: #eef2ef;
-            --dark: #3a3a3a;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background:
-                linear-gradient(rgba(255, 255, 255, .91), rgba(255, 255, 255, .9)),
-                url("nordwood-themes-R53t-Tg6J4c-unsplash.jpg");
-            background-repeat: repeat;
-            line-height: 1.8;
-            color: var(--dark);
-        }
-
-        h1,
-        h2,
-        h3 {
-            font-family: 'Playfair Display', serif
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 50px 20px 50px 20px
-        }
-
-        .btn {
-            margin: 20px 40px 0 40px;
-            padding: 10px 35px;
-            color: var(--green);
-            border: 1px solid var(--green);
-            display: inline-block;
-            transition: .3s;
-        }
-
-        .btn-white {
-            padding: 10px 35px;
-            border: 1px solid white;
-            color: white;
-            display: inline-block;
-            transition: .3s;
-        }
-
-        .btn:hover {
-            background: var(--green);
-            color: #fff;
-        }
-
-        .btn-white:hover {
-            background: white;
-            color: var(--green);
-        }
-
-        /* NAV */
-
-
-        .nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, .1);
-            background: #ffffff2f;
-            backdrop-filter: blur(5px);
-            z-index: 1000;
-            color: var(--dark);
-        }
-
-        .nav-links a {
-            margin-left: 25px;
-            font-size: 14px;
-        }
-
-        .nav-links a:hover {
-            color: var(--green)
-        }
-
-        /* IMAGE SECTION */
-
-        .image-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        .image-section img {
-            width: 100%;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, .08);
-        }
-
-        /* WYRÓŻNIENIA SŁÓW KLUCZOWYCH */
-        .keyword {
-            color: var(--green);
-            font-weight: 600;
-            border-bottom: 2px dotted var(--rose);
-            padding-bottom: 2px;
-        }
-
-        .keyword-bg {
-            background: rgba(216, 183, 179, 0.15);
-            padding: 2px 8px;
-            border-radius: 20px;
-            font-weight: 500;
-            display: inline-block;
-            margin: 2px 0;
-            border: 1px solid rgba(216, 183, 179, 0.3);
-        }
-
-        .experience-block {
-            background: rgba(255, 255, 255, 0.5);
-            padding: 30px;
-            border-radius: 16px;
-            margin: 30px 0;
-            border-left: 4px solid var(--rose);
-        }
-
-        .experience-list {
-            list-style: none;
-            margin: 20px 0 20px 20px;
-        }
-
-        .experience-list li {
-            margin-bottom: 12px;
-            padding-left: 28px;
-            position: relative;
-        }
-
-        .experience-list li::before {
-            content: "→";
-            color: var(--rose);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-            top: 0;
-        }
-
-        /* CONTACT */
-
-        .contact {
-            background: #c0a9a91f;
-            padding: 20px 20px;
-            text-align: center;
-            border: 1px solid var(--green);
-            font-family: 'Playfair Display', serif;
-            font-size: large;
-        }
-
-        .contact-columns {
-            max-width: 1000px;
-            margin: 30px auto 0;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: stretch;
-            border: 1px solid var(--green);
-            overflow: hidden;
-        }
-
-        .contact-left,
-        .contact-right {
-            flex: 1 1 350px;
-            padding: 30px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .contact-left {
-            border-right: 1px solid var(--green)
-        }
-
-        .contact-right {
-            background: #f4eeee
-        }
-
-        .contact ul {
-            list-style: none
-        }
-
-        /* FOOTER */
-
-        footer {
-            background: var(--green);
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
-
-        /* RESPONSIVE */
-
-        @media(max-width:900px) {
-            .hero h1 {
-                font-size: 38px
-            }
-
-            .image-section {
-                grid-template-columns: 1fr
-            }
-
-            .nav {
-                flex-direction: column
-            }
-        }
-
-        @media(max-width:768px) {
-            .contact-columns {
-                flex-direction: column
-            }
-        }
-
-
-        .page-header {
-            text-align: center;
-            margin-top: 30px;
-            position: relative;
-        }
-
-        .page-header h1 {
-            font-size: 3.2rem;
-            color: var(--dark);
-            position: relative;
-            display: inline-block;
-        }
-
-        .hero {
-            position: relative;
-            margin-top: 25vh;
-            height: 30vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-            color: var(--dark);
-        }
-
-        .hero-slides,
-        .slide {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-        }
-
-        .slide {
-            background-size: cover;
-            background-position: center;
-        }
-
-        .slide-1 {
-            background-image: url('banner-oferta.jpg');
-        }
-
-        .slide::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(222, 186, 182, 0.265);
-            mix-blend-mode: normal;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 800px;
-            padding: 20px;
-        }
-
-        .hero h1 {
-            font-size: 60px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 40px
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -329,10 +31,10 @@
 
 
     <!-- HERO -->
-    <section class="hero">
-        <div class="hero-content">
+    <section class="main-section">
+        <div class="main-section-content">
             <h1>O mnie</h1>
-            <p>Łączę wiedzę psychologiczną z indywidualnym podejściem.</p>
+            <p>Łączę wiedzę psychologiczną z&nbsp;indywidualnym podejściem.</p>
         </div>
     </section>
 
@@ -342,12 +44,13 @@
             <h2>Kim jestem</h2>
 
             <p>Jestem <span class="keyword">psycholożką</span>, <span class="keyword">technikiem farmacji</span> oraz
-                <span class="keyword">psychoterapeutką</span> w trakcie 4-letniego szkolenia w nurcie Gestalt (2 rok).
-                Posiadam przygotowanie pedagogiczne zgodne z wymogami oświatowymi.
+                <span class="keyword">psychoterapeutką</span> w&nbsp;trakcie 4-letniego szkolenia w&nbsp;nurcie Gestalt
+                (2 rok).
+                Posiadam przygotowanie pedagogiczne zgodne z&nbsp;wymogami oświatowymi.
             </p>
 
             <p>Doświadczenie zawodowe zdobywałam pracując jako <span class="keyword">psycholog szkolny</span> w szkołach
-                podstawowych, w <span class="keyword">placówkach NFZ</span> oraz w niepublicznych gabinetach
+                podstawowych, w&nbsp;<span class="keyword">placówkach NFZ</span> oraz w&nbsp;niepublicznych gabinetach
                 psychologicznych.</p>
         </div>
 
@@ -360,48 +63,56 @@
     <section class="container">
         <h1>Doświadczenie zawodowe</h1>
 
-        <p>W ramach pracy w systemie publicznej opieki zdrowotnej(NFZ) prowadziłam
+        <p>W ramach pracy w&nbsp;systemie publicznej opieki zdrowotnej(NFZ) prowadziłam
             <span class="keyword">wsparcie psychologiczne</span> oraz <span class="keyword">interwencje kryzysowe</span>
-            dla osób dorosłych. Uczestniczyłam w procesie diagnozy w kierunku <span class="keyword">depresji</span>,
+            dla osób dorosłych. Uczestniczyłam w&nbsp;procesie diagnozy w&nbsp;kierunku <span
+                class="keyword">depresji</span>,
             <span class="keyword">zaburzeń lękowych</span> oraz <span class="keyword">zaburzeń funkcji
                 poznawczych</span>.
         </p>
 
         <p>W niepublicznych gabinetach prowadziłam <span class="keyword">psychoterapię
-                indywidualną osób dorosłych</span>, pracując z <span class="keyword">trudnościami emocjonalnymi</span>,
+                indywidualną osób dorosłych</span>, pracując z&nbsp;<span class="keyword">trudnościami
+                emocjonalnymi</span>,
             <span class="keyword">kryzysami życiowymi</span>, <span class="keyword">obniżonym nastrojem</span> oraz
             <span class="keyword">zaburzeniami lękowymi</span>.
         </p>
 
-        <p style="margin-top: 30px;">Jako psycholog szkolny w szkołach podstawowych współuczestniczyłam w
-            procesie <span class="keyword">diagnostycznym dzieci i młodzieży</span>. Na co dzień wspierałam uczniów
-            w <span class="keyword">trudnościach emocjonalnych</span>, <span class="keyword">relacyjnych</span> i
-            <span class="keyword">rozwojowych</span>, pomagając im lepiej funkcjonować w środowisku szkolnym.
+        <p style="margin-top: 30px;">Jako psycholog szkolny w&nbsp;szkołach podstawowych współuczestniczyłam w
+            procesie <span class="keyword">diagnostycznym dzieci i&nbsp;młodzieży</span>. Na co dzień wspierałam uczniów
+            w&nbsp;<span class="keyword">trudnościach emocjonalnych</span>, <span class="keyword">relacyjnych</span> i
+            <span class="keyword">rozwojowych</span>, pomagając im lepiej funkcjonować w&nbsp;środowisku szkolnym.
         </p>
-        <p style="margin-top: 30px;">Współpracuję z <span class="keyword">lekarzami psychiatrami</span> — za zgodą
-            klienta — dbając o spójność procesu leczenia i bezpieczeństwo farmakoterapii.</p>
+        <p style="margin-top: 30px;">Współpracuję z&nbsp;<span class="keyword">lekarzami psychiatrami</span> — za zgodą
+            klienta — dbając o&nbsp;spójność procesu leczenia i&nbsp;bezpieczeństwo farmakoterapii.</p>
 
-        <p>Przez cztery lata pracowałam w <span class="keyword">środowisku korporacyjnym</span>, co pozwala mi lepiej
-            rozumieć presję efektywności i przeciążenie zawodowe.</p>
+        <p>Przez cztery lata pracowałam w&nbsp;<span class="keyword">środowisku korporacyjnym</span>, co pozwala mi
+            lepiej
+            rozumieć presję efektywności i&nbsp;przeciążenie zawodowe.</p>
 
         <p>Swoją pracę opieram na sprawdzonych metodach psychoterapeutycznych oraz aktualnej wiedzy klinicznej.
-            Regularnie korzystam z superwizji i pracuję zgodnie z zasadami etyki zawodowej.</p>
+            Regularnie korzystam z&nbsp;superwizji i&nbsp;pracuję zgodnie z&nbsp;zasadami etyki zawodowej.</p>
     </section>
 
     <!-- CYTAT -->
-    <div class="contact">
-        <p><em>W centrum mojej pracy jest kontakt „tu i teraz” — przy jednoczesnym respektowaniu granic i autonomii
+    <div class="cytat">
+        <p><em>W centrum mojej pracy jest kontakt „tu i&nbsp;teraz” — przy jednoczesnym respektowaniu granic
+                i&nbsp;autonomii
                 klienta.</em></p>
     </div>
 
     <!-- WARTOŚCI -->
     <section class="container">
-        <p>Z szacunkiem odnoszę się do wartości moralnych, światopoglądu i duchowości osób, z którymi pracuję. Każdy
-            proces jest dla mnie wyjątkowy i jedyny w swoim rodzaju. Podczas pracy nie korzystam z gotowych skryptów czy
+        <p>Z <span class="keyword">szacunkiem</span> odnoszę się do wartości moralnych, światopoglądu i&nbsp;duchowości
+            osób, z&nbsp;którymi pracuję.
+            Każdy
+            proces jest dla mnie wyjątkowy i&nbsp;jedyny w&nbsp;swoim rodzaju. Podczas pracy nie korzystam
+            z&nbsp;gotowych skryptów czy
             scenariuszy.</p>
 
-        <p>Wspieram również osoby twórcze oraz jestem otwarta na współpracę z planami filmowymi i środowiskiem
-            artystycznym.</p>
+        <p>Wspieram również osoby <span class="keyword">twórcze oraz jestem otwarta na współpracę z&nbsp;planami
+                filmowymi i&nbsp;środowiskiem
+                artystycznym.</span></p>
     </section>
 
     <!-- JAK PRACUJĘ -->
@@ -409,20 +120,22 @@
         <div>
             <h1>Jak pracuję</h1>
 
-            <p style="margin-top: 10px">Bliskie jest mi podejście Gestalt, w którym relacja terapeutyczna stanowi jedno
-                z najważniejszych narzędzi pracy.</p>
-            <p style="margin-top: 10px">Nie udzielam gotowych porad ani nie „naprawiam”. Towarzyszę w procesie
-                zwiększania świadomości, rozumienia swoich emocji i poszerzania możliwości wyboru.</p>
+            <p style="margin-top: 10px">Bliskie jest mi podejście Gestalt, w&nbsp;którym relacja terapeutyczna stanowi
+                jedno
+                z&nbsp;najważniejszych narzędzi pracy.</p>
+            <p style="margin-top: 10px">Nie udzielam gotowych porad ani nie „naprawiam”. Towarzyszę w&nbsp;procesie
+                zwiększania świadomości, rozumienia swoich emocji i&nbsp;poszerzania możliwości wyboru.</p>
 
             <ul style="margin: 20px 0 20px 40px; line-height:2.5;">
-                <li>rozmowę i dialog terapeutyczny,</li>
-                <li>uważność na ciało i oddech,</li>
-                <li>pracę z doświadczeniem,</li>
-                <li>elementy arteterapii i metafory,</li>
+                <li>rozmowę i&nbsp;dialog terapeutyczny,</li>
+                <li>uważność na ciało i&nbsp;oddech,</li>
+                <li>pracę z&nbsp;doświadczeniem,</li>
+                <li>elementy arteterapii i&nbsp;metafory,</li>
                 <li>eksperymenty terapeutyczne.</li>
             </ul>
 
-            <p>Proces zmiany bywa wymagający. Czasem zanim pojawi się ulga, pojawia się chwilowe napięcie. W relacji
+            <p>Proces zmiany bywa wymagający. Czasem zanim pojawi się ulga, pojawia się chwilowe napięcie.
+                W&nbsp;relacji
                 terapeutycznej można bezpiecznie przyjrzeć się temu, co trudne.</p>
         </div>
 
@@ -434,7 +147,7 @@
     <div class="cta-box">
         <h3>Rozpocznijmy współpracę</h3>
         <p>Jeżeli potrzebujesz warsztatów dla swojej organizacji, konsultacji scenariuszowej, czy
-            wsparcia dla zespołu twórców - porozmawiajmy o daszej współpracy.</p>
+            wsparcia dla zespołu twórców - porozmawiajmy o&nbsp;daszej współpracy.</p>
         <a href="index.html#contact" class="btn">Umów
             konsultację
             <i class="fas fa-arrow-right"></i></a>

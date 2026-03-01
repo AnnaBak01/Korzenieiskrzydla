@@ -5,336 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Warsztaty i Współpraca | Korzenie i Skrzydła</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --beige: #f6f1ed;
-            --rose: #d8b7b3;
-            --green: #6f8376;
-            --dark: #3a3a3a;
-            --light: #ffffff;
-            --soft: #eef2ef;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background:
-                linear-gradient(rgba(255, 255, 255, .91), rgba(255, 255, 255, .9)),
-                url("nordwood-themes-R53t-Tg6J4c-unsplash.jpg");
-            background-repeat: repeat;
-            line-height: 1.8;
-            color: var(--dark);
-        }
-
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-family: 'Playfair Display', serif;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-
-        .nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, .1);
-            background: #ffffff2f;
-            backdrop-filter: blur(5px);
-            z-index: 1000;
-            color: var(--dark);
-        }
-
-        .nav-links a {
-            margin-left: 25px;
-            font-size: 14px;
-        }
-
-        .nav-links a:hover {
-            color: var(--green)
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 140px 20px 70px;
-        }
-
-        .page-header {
-            text-align: center;
-            margin-bottom: 60px;
-            position: relative;
-        }
-
-        .page-header h1 {
-            font-size: 3.2rem;
-            color: var(--dark);
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .page-header p {
-            max-width: 700px;
-            margin: 30px auto 0;
-            color: #555;
-            font-size: 1.2rem;
-        }
-
-        /* Karty styl jak w cenniku */
-        .card {
-            background: white;
-            padding: 35px 30px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, .05);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(111, 131, 118, 0.1);
-            position: relative;
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-
-        .card:hover {
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
-            border-color: var(--green);
-        }
-
-        .card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .card h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-
-        .card h3 {
-            font-size: 1.5rem;
-            margin: 25px 0 15px;
-            color: var(--dark);
-        }
-
-        .card h4 {
-            font-size: 1.2rem;
-            margin: 20px 0 10px;
-            color: var(--dark);
-        }
-
-        .card p {
-            margin-bottom: 15px;
-            color: #555;
-        }
-
-        .card .list {
-            padding-left: 25px;
-            margin-bottom: 20px;
-            list-style-type: none;
-        }
-
-        .card .list li {
-            margin-bottom: 12px;
-            position: relative;
-            padding-left: 25px;
-        }
-
-        .card .list li::before {
-            content: "✦";
-            position: absolute;
-            left: 0;
-            color: var(--rose);
-            font-size: 1.1rem;
-        }
-
-        .btn {
-            margin: 20px 0 0;
-            padding: 12px 35px;
-            color: var(--green);
-            border: 2px solid var(--green);
-            background: transparent;
-            display: inline-block;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            font-weight: 500;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background: var(--green);
-            color: #fff;
-            transform: scale(1.05);
-        }
-
-        .btn i {
-            margin-left: 8px;
-            transition: transform 0.3s ease;
-        }
-
-        .btn:hover i {
-            transform: translateX(5px);
-        }
-
-        .btn-center {
-            display: flex;
-            justify-content: center;
-        }
-
-        /* Grid dla sekcji z obrazkiem */
-        .image-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-            margin: 40px 0;
-        }
-
-        .image-section img {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, .08);
-            transition: transform 0.3s ease;
-        }
-
-        .image-section img:hover {
-            transform: scale(1.02);
-        }
-
-        .image-section .content h2 {
-            font-size: 2rem;
-            color: var(--dark);
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-
-        /* Sekcja z ikonami */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin: 40px 0;
-        }
-
-        .feature-item {
-            text-align: center;
-            padding: 25px;
-            background: white;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, .03);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(111, 131, 118, 0.1);
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.08);
-            border-color: var(--green);
-        }
-
-        .feature-item i {
-            font-size: 2.5rem;
-            color: var(--green);
-            margin-bottom: 15px;
-        }
-
-        .feature-item h4 {
-            color: var(--dark);
-            margin-bottom: 10px;
-        }
-
-        .feature-item p {
-            color: #666;
-            font-size: 0.95rem;
-        }
-
-        .cta-box {
-            background: var(--soft);
-            padding: 50px;
-            text-align: center;
-            margin: 60px 0;
-            border: 1px solid var(--green);
-        }
-
-        .cta-box h3 {
-            font-size: 2rem;
-            color: var(--green);
-            margin-bottom: 15px;
-        }
-
-        .cta-box p {
-            max-width: 600px;
-            margin: 0 auto 30px;
-            color: #555;
-        }
-
-        footer {
-            background: var(--green);
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 80px;
-        }
-
-        .keyword {
-            color: var(--green);
-            font-weight: 600;
-            border-bottom: 2px dotted var(--rose);
-            padding-bottom: 2px;
-        }
-
-
-        @media(max-width:900px) {
-            .nav {
-                flex-direction: column;
-                padding: 20px 30px;
-            }
-
-            .nav-links {
-                margin-top: 10px;
-            }
-
-            .nav-links a {
-                margin: 0 10px;
-                font-size: 13px;
-            }
-
-            .image-section {
-                grid-template-columns: 1fr;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .page-header h1 {
-                font-size: 2.5rem;
-            }
-
-            .card {
-                padding: 25px 20px;
-            }
-
-            .cta-box {
-                padding: 30px 20px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -357,26 +28,28 @@
     </nav>
 
     <main class="container">
-        <div class="page-header">
-            <h1>Warsztaty i Współpraca</h1>
-            <p>Twórzmy razem przestrzeń do rozwoju, wsparcia i twórczego działania</p>
+        <div class="main-section">
+            <div class="main-section-content">
+                <h1>Warsztaty i Współpraca</h1>
+                <p>Twórzmy razem przestrzeń do rozwoju, wsparcia i&nbsp;twórczego działania</p>
+            </div>
         </div>
 
         <!-- Warsztaty i grupy - karta -->
         <div class="card">
-            <h2>Warsztaty i grupy</h2>
+            <h2>Warsztaty i&nbsp;grupy</h2>
             <p>Prowadzę warsztaty oraz grupy wsparciowo-rozwojowe, skierowane do osób indywidualnych oraz zespołów.
-                Każde spotkanie projektuję z myślą o konkretnych potrzebach uczestników.</p>
+                Każde spotkanie projektuję z&nbsp;myślą o&nbsp;konkretnych potrzebach uczestników.</p>
 
             <div class="features-grid">
                 <div class="feature-item">
                     <i class="fas fa-female"></i>
                     <h4>Dla kobiet</h4>
-                    <p>Praca z ciałem, oddechem, regulacja napięcia, powrót do kontaktu ze sobą</p>
+                    <p>Praca z&nbsp;ciałem, oddechem, regulacja napięcia, powrót do kontaktu ze sobą</p>
                 </div>
                 <div class="feature-item">
                     <i class="fas fa-building"></i>
-                    <h4>Dla firm i szkół</h4>
+                    <h4>Dla firm i&nbsp;szkół</h4>
                     <p>Stres, neuroróżnorodność, dobrostan - warsztaty dopasowane do środowiska pracy</p>
                 </div>
                 <div class="feature-item">
@@ -390,7 +63,7 @@
                     odbiorców.</em> Cena ustalana jest indywidualnie.</p>
 
             <div class="btn-center">
-                <a href="in" class="btn">Zapytaj o warsztaty</a>
+                <a href="in" class="btn">Zapytaj o&nbsp;warsztaty</a>
             </div>
         </div>
 
@@ -399,15 +72,16 @@
         <!-- Konsultantka psychologiczna - sekcja z obrazkiem -->
         <div class="image-section">
             <div class="content">
-                <h2>Konsultacja psychologiczna ds. postaci i dobrostanu zespołu</h2>
-                <p>Oferuję współpracę przy produkcjach<span class="keyword">filmowych, serialowych i teatralnych</span>
-                    w zakresie konsultacji
+                <h2>Konsultacja psychologiczna ds. postaci i&nbsp;dobrostanu zespołu</h2>
+                <p>Oferuję współpracę przy produkcjach<span class="keyword">filmowych, serialowych
+                        i&nbsp;teatralnych</span>
+                    w&nbsp;zakresie konsultacji
                     psychologicznej dotyczącej konstrukcji postaci oraz wsparcia dobrostanu psychicznego zespołu.</p>
-                <p style="margin-top: 10px">Praca twórcza często wiąże się z intensywnym obciążeniem emocjonalnym,
+                <p style="margin-top: 10px">Praca twórcza często wiąże się z&nbsp;intensywnym obciążeniem emocjonalnym,
                     presją czasu oraz wysoką
-                    ekspozycją. Moim celem jest <span class="keyword">wspieranie twórców</span> w zachowaniu równowagi
-                    psychicznej oraz dbanie o
-                    rzetelność psychologiczną tworzonych historii.</p>
+                    ekspozycją. Moim celem jest <span class="keyword">wspieranie twórców</span> w&nbsp;zachowaniu
+                    równowagi
+                    psychicznej oraz dbanie o&nbsp;rzetelność psychologiczną tworzonych historii.</p>
             </div>
             <div>
                 <img src="Aktor.jpg" alt="Konsultacje psychologiczne dla twórców">
@@ -423,28 +97,28 @@
             <h3>Konsultacje scenariuszowe</h3>
             <ul class="list">
                 <li>analiza scenariusza pod kątem wiarygodności psychologicznej postaci</li>
-                <li>konsultacja obrazu depresji, zaburzeń lękowych, traumy i innych trudności psychicznych</li>
-                <li>wsparcie w budowaniu realistycznych motywacji i reakcji bohaterów</li>
-                <li>unikanie uproszczeń i stereotypów dotyczących zdrowia psychicznego</li>
-                <li>konsultacje z reżyserem i scenarzystą na etapie rozwoju projektu</li>
+                <li>konsultacja obrazu depresji, zaburzeń lękowych, traumy i&nbsp;innych trudności psychicznych</li>
+                <li>wsparcie w&nbsp;budowaniu realistycznych motywacji i&nbsp;reakcji bohaterów</li>
+                <li>unikanie uproszczeń i&nbsp;stereotypów dotyczących zdrowia psychicznego</li>
+                <li>konsultacje z&nbsp;reżyserem i&nbsp;scenarzystą na etapie rozwoju projektu</li>
             </ul>
 
-            <h3>Wsparcie psychologiczne dla aktorów i twórców</h3>
+            <h3>Wsparcie psychologiczne dla aktorów i&nbsp;twórców</h3>
             <ul class="list">
-                <li>konsultacje przed scenami o wysokim ładunku emocjonalnym</li>
-                <li>wsparcie w bezpiecznym „wchodzeniu i wychodzeniu z roli”</li>
+                <li>konsultacje przed scenami o&nbsp;wysokim ładunku emocjonalnym</li>
+                <li>wsparcie w&nbsp;bezpiecznym „wchodzeniu i&nbsp;wychodzeniu z&nbsp;roli”</li>
                 <li>regulacja napięcia po scenach wymagających</li>
-                <li>praca z lękiem przed ekspozycją i premierą</li>
+                <li>praca z&nbsp;lękiem przed ekspozycją i&nbsp;premierą</li>
                 <li>psychoedukacja dotycząca higieny psychicznej podczas intensywnych produkcji</li>
             </ul>
 
-            <h3>Warsztaty i działania profilaktyczne dla zespołu</h3>
+            <h3>Warsztaty i&nbsp;działania profilaktyczne dla zespołu</h3>
             <ul class="list">
-                <li>regulacja stresu i napięcia w warunkach planu</li>
+                <li>regulacja stresu i&nbsp;napięcia w&nbsp;warunkach planu</li>
                 <li>profilaktyka wypalenia</li>
-                <li>komunikacja w zespole</li>
-                <li>neuroróżnorodność w środowisku twórczym</li>
-                <li>podstawy dbania o dobrostan psychiczny przy długotrwałych projektach</li>
+                <li>komunikacja w&nbsp;zespole</li>
+                <li>neuroróżnorodność w&nbsp;środowisku twórczym</li>
+                <li>podstawy dbania o&nbsp;dobrostan psychiczny przy długotrwałych projektach</li>
             </ul>
 
             <div class="btn-center">
@@ -457,7 +131,7 @@
         <div class="cta-box">
             <h3>Rozpocznijmy współpracę</h3>
             <p>Jeżeli potrzebujesz warsztatów dla swojej organizacji, konsultacji scenariuszowej, czy
-                wsparcia dla zespołu twórców - porozmawiajmy o daszej współpracy.</p>
+                wsparcia dla zespołu twórców - porozmawiajmy o&nbsp;daszej współpracy.</p>
             <a href="index.html#contact" class="btn"
                 style="background: var(--green); color: white; border-color: var(--green);">Umów konsultację
                 <i class="fas fa-arrow-right"></i></a>

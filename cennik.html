@@ -5,272 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cennik | Korzenie i Skrzydła</title>
-    <style>
-        :root {
-            --beige: #f6f1ed;
-            --green: #6f8376;
-            --dark: #3a3a3a;
-            --soft: #eef2ef;
-            --rose: #d8b7b3;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background:
-                linear-gradient(rgba(255, 255, 255, .91), rgba(255, 255, 255, .9)),
-                url("nordwood-themes-R53t-Tg6J4c-unsplash.jpg");
-            background-repeat: repeat;
-            line-height: 1.8;
-            color: var(--dark);
-        }
-
-        h1,
-        h2,
-        h3 {
-            font-family: 'Playfair Display', serif;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, .1);
-            background: #ffffff2f;
-            backdrop-filter: blur(5px);
-            z-index: 1000;
-            color: var(--dark);
-        }
-
-        .nav-links a {
-            margin-left: 25px;
-            font-size: 14px;
-        }
-
-        .nav-links a:hover {
-            color: var(--green)
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 140px 20px 70px;
-        }
-
-        .page-title {
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .page-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 80px;
-            height: 3px;
-            background: var(--rose);
-        }
-
-        .intro-text {
-            margin-bottom: 50px;
-            max-width: 700px;
-            color: #555;
-            font-size: 1.1rem;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
-            margin-top: 20px;
-        }
-
-        .card {
-            background: white;
-            padding: 35px 30px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, .05);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            border: 1px solid rgba(111, 131, 118, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
-            border-color: var(--green);
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--green), var(--rose));
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-            transform-origin: left;
-        }
-
-        .card:hover::before {
-            transform: scaleX(1);
-        }
-
-        .card h2 {
-            font-size: 1.6rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-            line-height: 1.3;
-        }
-
-        .card .duration {
-            display: inline-block;
-            font-size: 0.95rem;
-            color: #666;
-            background: var(--soft);
-            padding: 5px 12px;
-            margin-bottom: 15px;
-            align-self: flex-start;
-        }
-
-        .card .price {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--green);
-            margin: 10px 0 15px;
-            line-height: 1.2;
-        }
-
-        .card .price-description {
-            font-size: 0.9rem;
-            color: #777;
-            font-style: italic;
-            margin-top: -5px;
-            margin-bottom: 20px;
-        }
-
-        .card-description {
-            color: #555;
-            margin: 10px 0 20px;
-            font-size: 1rem;
-            line-height: 1.6;
-            flex: 1;
-        }
-
-        .info-box {
-            margin-top: 60px;
-            background: var(--soft);
-            padding: 40px;
-            text-align: center;
-            border: 1px solid var(--green);
-        }
-
-        .info-box h3 {
-            font-size: 1.8rem;
-            color: var(--green);
-            margin-bottom: 15px;
-        }
-
-        .info-box p {
-            max-width: 600px;
-            margin: 0 auto 25px;
-            color: #555;
-        }
-
-        .btn {
-            margin: 20px 40px 0 40px;
-            padding: 10px 35px;
-            color: var(--green);
-            border: 1px solid var(--green);
-            display: inline-block;
-            transition: .3s;
-            width: 50%;
-        }
-
-        .btn:hover {
-            background: var(--green);
-            color: #fff;
-        }
-
-        .info-box .btn-large:hover {
-            background: var(--rose);
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        footer {
-            background: var(--green);
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 80px;
-        }
-
-        @media(max-width:768px) {
-            .nav {
-                padding: 20px 30px;
-            }
-
-            .nav-links a {
-                margin-left: 15px;
-                font-size: 13px;
-            }
-
-            .grid {
-                grid-template-columns: 1fr;
-            }
-
-            .container {
-                padding: 120px 20px 50px;
-            }
-
-            .page-title {
-                font-size: 2rem;
-            }
-
-            .card {
-                padding: 25px 20px;
-            }
-
-            .card h2 {
-                font-size: 1.4rem;
-            }
-
-            .card .price {
-                font-size: 1.8rem;
-            }
-
-            .info-box {
-                padding: 30px 20px;
-            }
-
-            .info-box h3 {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
     <!-- Dodanie ikon z Font Awesome dla strzałek -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -279,7 +14,7 @@
     <nav class="nav">
         <div style="display: flex; align-items: center; gap: 8px;">
             <img src="logo-korzenie-i-skrzydla.png" alt="Logo" style="height: 30px; width: auto;">
-            <strong>Korzenie i Skrzydła</strong>
+            <strong>Korzenie i&nbsp;Skrzydła</strong>
         </div>
         <div class="nav-links">
             <a href="index.html">Strona główna</a>
@@ -296,15 +31,17 @@
 
     <main class="container">
         <h1 class="page-title">Cennik</h1>
-        <p class="intro-text">Inwestycja w swój rozwój i zdrowie psychiczne to najlepszy prezent, jaki możesz sobie
+        <p class="intro-text">Inwestycja w&nbsp;swój rozwój i&nbsp;zdrowie psychiczne to najlepszy prezent, jaki możesz
+            sobie
             podarować. Poniżej znajdziesz szczegóły dotyczące cen poszczególnych usług.</p>
 
-        <div class="grid">
+        <div class="grid" style="grid-template-columns: repeat(2, 1fr);">
             <div class="card">
                 <h2>Psychoterapia indywidualna</h2>
                 <span class="duration"><i class="far fa-clock"></i> 50 minut</span>
                 <div class="price">220 zł</div>
-                <p class="card-description">Regularne spotkania indywidualne w bezpiecznej, wspierającej atmosferze.
+                <p class="card-description">Regularne spotkania indywidualne w&nbsp;bezpiecznej, wspierającej
+                    atmosferze.
                     Pracujemy nad Twoimi celami we własnym tempie.</p>
                 <a href="psychoterapia.html" class="btn">Dowiedz się więcej <i class="fas fa-arrow-right"></i></a>
             </div>
@@ -322,14 +59,15 @@
                 <h2>Grupa rozwojowa</h2>
                 <span class="duration"><i class="far fa-calendar-alt"></i> cykl wg ustaleń</span>
                 <div class="price">wycena indywidualna</div>
-                <p class="card-description">Praca w grupie daje wyjątkową możliwość uczenia się poprzez kontakt z innymi
-                    i wymianę doświadczeń.</p>
+                <p class="card-description">Praca w&nbsp;grupie daje wyjątkową możliwość uczenia się poprzez kontakt z
+                    innymi
+                    i&nbsp;wymianę doświadczeń.</p>
                 <a href="grupy.html" class="btn">Sprawdź terminy <i class="fas fa-arrow-right"></i></a>
             </div>
 
             <div class="card">
                 <h2>Warsztaty</h2>
-                <span class="duration"><i class="far fa-calendar-alt"></i> czas i forma indywidualna</span>
+                <span class="duration"><i class="far fa-calendar-alt"></i> czas i&nbsp;forma indywidualna</span>
                 <div class="price">wycena indywidualna</div>
                 <p class="card-description">Tematyczne spotkania warsztatowe dostosowane do potrzeb Twojej grupy lub
                     organizacji.</p>
@@ -339,7 +77,7 @@
 
         <div class="info-box">
             <h3>Masz pytania?</h3>
-            <p>Jeśli chcesz dowiedzieć się więcej o poszczególnych usługach lub umówić się na pierwszą wizytę -
+            <p>Jeśli chcesz dowiedzieć się więcej o&nbsp;poszczególnych usługach lub umówić się na pierwszą wizytę -
                 skontaktuj się ze mną. Chętnie odpowiem na wszystkie pytania.</p>
             <a href="index.html#contact" class="btn">Skontaktuj się</a>
         </div>
